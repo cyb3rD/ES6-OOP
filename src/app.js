@@ -4,14 +4,17 @@ class Drone {
     }
 
     get id() {
-        console.log('in getter');
-        return this._id + ' TMP';
+        return this._id;
     }
 
     set id(value) {
         this._id = value;
     }
 }
-
-module.exports = Drone;
+    
+if (typeof module !== "undefined" && module.exports) {
+    module.exports = Drone;
+} else {
+//   
+}
 
