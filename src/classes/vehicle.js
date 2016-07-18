@@ -2,16 +2,10 @@
  * Vehicle Base class
  */
 export class Vehicle {
-    constructor(id) {
-      console.log('Call Vehicle constructor');
-      this._id = id;
+    constructor(license, model, latLong) {
+      this.license = license;
+      this.model = model;
+      this.latLong = latLong;
     }
 
-    get id() {
-      return this._id;
-    }
-
-    set id(value) {
-      this._id = value;
-    }
 }
