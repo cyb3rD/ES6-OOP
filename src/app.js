@@ -1,20 +1,9 @@
-class Drone {
-    constructor(id) {
-        this._id = id;
-    }
+import {Car} from './classes/car.js';
+import {Drone} from './classes/drone.js';
 
-    get id() {
-        return this._id;
-    }
+let myCar = new Car();
+let myDrone = new Drone();
 
-    set id(value) {
-        this._id = value;
-    }
-}
-    
-if (typeof module !== "undefined" && module.exports) {
-    module.exports = Drone;
-} else {
-//   
-}
+console.log(myCar);
+console.log(myDrone);
 
