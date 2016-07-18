@@ -1,7 +1,9 @@
-// Vehicle base class
+/**
+ * Vehicle Base class
+ */
 export class Vehicle {
     constructor(id) {
-      console.log('Vehicle constructor');
+      console.log('Call Vehicle constructor');
       this._id = id;
     }
 

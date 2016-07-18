@@ -5,5 +5,5 @@ let myCar = new Car();
 let myDrone = new Drone();
 
 console.log(myCar);
-console.log(myDrone);
+console.log(typeof myDrone);
 

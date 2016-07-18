@@ -1,19 +1,27 @@
+/**
+ * Test module
+ */
+
+// Module
 import {Drone} from '../src/classes/drone.js';
 
-let chai = require('chai'),
-    path = require('path');
+let chai = require('chai');
 
 chai.should();
 
+// Suite
 describe('Drone class', () => {
+  let drone;
   
   beforeEach(() => {
     drone = new Drone('TestDrone#123');
   });
   
+  // test
   describe('#Drone()', () => {
     
-    it('is Object', () => {
+    it('After calling constructor drone is an Object', () => {
+      
       drone.should.be.an('object');
     });
     

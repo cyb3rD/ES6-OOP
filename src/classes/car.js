@@ -1,9 +1,10 @@
 import {Vehicle} from './vehicle.js';
 
-// Class for car
+/**
+ * Car
+ */
 export class Car extends Vehicle {
   constructor() {
-    super(); // Requirement
-    console.log('Car constructor');
+    super(); // Requirement for call base class constructor
   }
 }
