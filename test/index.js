@@ -1,2 +1,2 @@
 // Load test suites 
-require('./drone.spec.js');
+require("./drone.spec.js");
