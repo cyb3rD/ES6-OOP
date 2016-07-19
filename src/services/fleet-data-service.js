@@ -17,18 +17,38 @@ export class FleetDataService {
     for (let data of fleet) {
       switch(data.type) {
         case 'car':
-          //
-          let car = this.loadCar(data);
-          this.cars.push(car);
-          break;
+          if (this.validateCarData(data)) {
+            // loading data after validation check
+            let car = this.loadCar(data);
+            
+            // check for errors after loadCar complete
+            if(car)
+              this.cars.push(car);
+            
+            break;
+          } else {
+            let e = new DataError('Error in car data', data);
+            this.errors.push(e);
+          }
+         
         case 'drone':
-          //
-          let drone = this.loadDrone(data);
-          this.drones.push(data);
-          break;
+          if (this.validateDroneData(data)) {
+            // loading data after validation check
+            let drone = this.loadDrone(data);
+            
+            // check for errors after loadDrone complete
+            if (drone)
+              this.drones.push(data);
+            
+            break;
+          } else {
+            let e = new DataError('Error in drone data', data);
+            this.errors.push(e);
+          }
+          
         default:
           let e = new DataError('Invalid vehicle type!', data);
-          this.error.push(e);
+          this.errors.push(e);
           break;
       }
     }
@@ -45,6 +65,8 @@ export class FleetDataService {
     } catch(e) {
       this.errors.push(new DataError('Error in creating Car object! ', car));
     }
+
+    return null;
   }
 
   loadDrone(drone) {
@@ -58,6 +80,54 @@ export class FleetDataService {
     } catch(e) {
       this.errors.push(new DataError('Error in creating Car object! ', drone));
     }
+
+    return null;
+  }
+
+  validateCarData(car) {
+    // TODO: check fields format
+    let requiredProps = "license model latLong miles make".split(" ");
+    let hasErrors = false;
+    
+    for (let field of requiredProps) {
+      // check for valid field in car object
+      if(!car[field]) {
+        this.errors.push(new DataError(`invalid field ${field}`, car));
+        hasErrors = true;
+      }
+    }
+
+    // miles must be Number check
+    if (Number.isNaN(Number.parseFloat(car.miles))) {
+      this.errors.push(new DataError('Miles must be a number', car));
+      hasErrors = true;
+    }
+
+    // true - No Errors, false - there is Errors
+    return !hasErrors;
+  }
+
+  validateDroneData(drone) {
+    // TODO: check fields format
+    let requiredProps = "license model latLong airTimeHours base".split(" ");
+    let hasErrors = false;
+    
+    for (let field of requiredProps) {
+      // check for valid field in drone object
+      if(!drone[field]) {
+        this.errors.push(new DataError(`invalid field ${field}`, car));
+        hasErrors = true;
+      }
+    }
+
+    // airTimeHours must be Number check
+    if (Number.isNaN(Number.parseFloat(drone.airTimeHours))) {
+      this.errors.push(new DataError('Air time hours must be a number', car));
+      hasErrors = true;
+    }
+
+    // true - No Errors, false - there is Errors
+    return !hasErrors;
   }
 
 }
