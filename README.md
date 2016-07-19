@@ -19,7 +19,7 @@ In this project I want to learn basic conceptions of OOP in ES6 and unit testing
 
 see TODO list to find more my ideas to this project
 
-### Projetc installation
+### Project installation
 
 0. Clone repo:
 ```
