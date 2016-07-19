@@ -14,11 +14,15 @@
         <script src="node_modules/traceur/bin/traceur.js"></script>
         <script src="node_modules/systemjs/dist/system.js"></script>
         <script defer src="node_modules/material-design-lite/material.min.js"></script>
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBR5aR4rwbmT0lMwGorh8hoXfK3383pTYw&callback=googleMapsCallback"
+        ></script>
     </head>
     <body>
         <script>
-            System.paths['jquery'] = './node_modules/jquery/dist/jquery.js';
-            System.import('src/app.js');
+            function googleMapsCallback() {
+                System.paths['jquery'] = './node_modules/jquery/dist/jquery.js';
+                System.import('src/app.js');
+            }
         </script>
     </body>
     

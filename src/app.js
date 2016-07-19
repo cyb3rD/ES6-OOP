@@ -13,6 +13,7 @@ import {Button} from './ui/button.js';
 import {Image} from './ui/image.js';
 import {TitleBar} from './ui/title-bar.js';
 import {DataTable} from './ui/data-table.js';
+import {GoogleMap} from './ui/google-map.js';
 /**
  * Title bar
  */
@@ -37,7 +38,6 @@ let dataService = new FleetDataService(fleet);
 dataService.loadData(fleet);
 
 let headers = "License Model Make Miles".split(" ");
-console.log(dataService.drones);
 let dataTable = new DataTable(headers, dataService.cars);
 dataTable.appendToElement($('.page-content'));
 
@@ -46,3 +46,10 @@ dataTable.appendToElement($('.page-content'));
  */
 let btn = new Button('Show more...');
 btn.appendToElement($('.page-content'));
+
+/**
+ * Google Map
+ */
+let centerOfMap = {lat: 40.783661, lng: -73.965883};
+let map = new GoogleMap(centerOfMap, dataService.cars);
+map.appendToElement($('.page-content'));

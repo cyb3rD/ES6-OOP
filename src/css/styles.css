@@ -4,3 +4,8 @@
 .vehicles-table {
   margin: 0 auto;
 }
+
+.google-map {
+  width: 800px;
+  height: 400px;
+}
