@@ -7,6 +7,18 @@
 Example project to solid understanging new ES6 standart OOP conceptions.
 In this project I want to learn basic conceptions of OOP in ES6 and unit testing.
 
+### Techonolgies
+
+* ES6 (ES2015)
+* Node.js v6.3.0
+* Babel transpiler
+* Jquery (2.2.3)
+* Material Design Lite 
+* SystemJS (extending es6-module-loader functionality) in order to using JQuery 2.2.3 within ES6 modules
+* mocha chai - unit testing (see TODO)
+
+see TODO list to find more my ideas to this project
+
 ### Projetc installation
 
 0. Clone repo:
@@ -14,11 +26,15 @@ In this project I want to learn basic conceptions of OOP in ES6 and unit testing
 git clone https://github.com/cyb3rD/ES6-Learning.git
 cd OOP
 ```
-1. Install all dependencies in `package.json`:
+1. Before installing packages you can list all your global installed packages:
+```
+npm list -g --depth=0
+```
+2. Install all dependencies (required for using described tehnologies) in `package.json`:
 ```
 npm install
 ```
-2. Run lite-server with BorwserSync:
+3. Run lite-server with BorwserSync:
 ```
 npm run dev
 ```
@@ -32,5 +48,7 @@ npm run test
 
 #### TODO
 
-- [ ] write basic tests for unit testing
+- [ ] Basic unit testing
+- [ ] Using MongoDB
+- [ ] Use webpack & babel intead of traceur, lite-server
 

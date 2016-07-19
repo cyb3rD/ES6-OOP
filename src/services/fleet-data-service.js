@@ -159,6 +159,7 @@ export class FleetDataService {
   }
 
   filterCarsByMake(filter) {
+    // don't need to use () if there is one input
     return this.cars.filter(car => car.make.indexOf(filter) >= 0);
   }
 
