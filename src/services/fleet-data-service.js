@@ -130,4 +130,36 @@ export class FleetDataService {
     return !hasErrors;
   }
 
+  getCarByLicense(licenseNum) {
+    // My way:
+    // for (let car of this.cars) {
+    //   if (car.license === licenseNum) {
+    //     return car;
+    //   } else {
+    //     this.errors.push(new DataError('There is no car with license: ', licenseNum));
+    //   }
+    // }
+
+    // looping through the array performing fucntion
+    return this.cars.find(function searchByLicense(car) {
+      return car.license === licenseNum;
+    });
+  }
+
+  getCarsSortedByLicense() {
+    return this.cars.sort(function sortCars(car1, car2){
+      // car1 comes first
+      if (car1.license < car2.license)
+        return -1;
+      // car2 comes first
+      if (car1.license > car2.license)
+        return 1;
+      return 0;
+    });
+  }
+
+  filterCarsByMake(filter) {
+    return this.cars.filter(car => car.make.indexOf(filter) >= 0);
+  }
+
 }
