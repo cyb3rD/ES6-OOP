@@ -7,7 +7,7 @@
 Example project to solid understanging new ES6 standart OOP conceptions.
 In this project I want to learn basic conceptions of OOP in ES6 and unit testing.
 
-### Techonolgies
+### What I'm using in this project
 
 * ES6 (ES2015)
 * Node.js v6.3.0
@@ -46,9 +46,10 @@ You can test modules spec (basic methods) by running
 npm run test
 ```
 
-#### TODO
+#### TODO (by priorities)
 
-- [ ] Basic unit testing
-- [ ] Using MongoDB
-- [ ] Use webpack & babel intead of traceur, lite-server
-
+- [ ] Use webpack & babel intead of traceur & lite-server ( babel supports 74% of ES6)
+- [ ] Deploy project to Heroku (to learn of basics production workflow)
+- [ ] Create project page @gitHub Pages (to Refresh HTML, CSS knowledge)
+- [ ] Using MongoDB ( to learn basics of NoSQL DB)
+- [ ] Basic unit testing (just to understand basics of BDD modules testing)
