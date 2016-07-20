@@ -13,7 +13,7 @@ In this project I want to learn basic conceptions of OOP in ES6 and unit testing
 * Node.js v6.3.0
 * Babel transpiler
 * Jquery (2.2.3)
-* Material Design Lite 
+* Flexboxes
 * SystemJS (extending es6-module-loader functionality) in order to using JQuery 2.2.3 within ES6 modules
 * mocha chai - unit testing (see TODO)
 

@@ -36,16 +36,18 @@ export class DataTable extends BaseElement {
     }
     
     return `
+    <div class="vehicles-table-wrapper">
       <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp vehicles-table">
-      <thead>
-        <tr>
-          ${theader}
-        </tr>
-      </thead>
-      <tbody>
-        ${tbody}
-      </tbody>
-    </table>
+        <thead>
+          <tr>
+            ${theader}
+          </tr>
+        </thead>
+        <tbody>
+          ${tbody}
+        </tbody>
+      </table>
+    </div>
     `;
   }
 

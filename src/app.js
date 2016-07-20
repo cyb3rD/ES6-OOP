@@ -22,13 +22,13 @@ titleBar.addLink('Home', '#');
 titleBar.addLink('Cars', '#');
 titleBar.addLink('Drones', '#');
 titleBar.addLink('Map', '#');
-titleBar.appendToElement($('body'));
+titleBar.appendToElement($('.container'));
 
 /**
  * Image
  */
 let img = new Image('src/images/Drone1.png');
-img.appendToElement($('.page-content'));
+img.appendToElement($('.container'));
 
 /**
  * Car table
@@ -39,17 +39,17 @@ dataService.loadData(fleet);
 
 let headers = "License Model Make Miles".split(" ");
 let dataTable = new DataTable(headers, dataService.cars);
-dataTable.appendToElement($('.page-content'));
+dataTable.appendToElement($('.container'));
 
 /**
  * Button
  */
-let btn = new Button('Show more...');
-btn.appendToElement($('.page-content'));
+// let btn = new Button('Show more...');
+// btn.appendToElement($('.container'));
 
 /**
  * Google Map
  */
 let centerOfMap = {lat: 40.783661, lng: -73.965883};
 let map = new GoogleMap(centerOfMap, dataService.cars);
-map.appendToElement($('.page-content'));
+map.appendToElement($('.container'));
