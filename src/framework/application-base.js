@@ -32,6 +32,14 @@ export class ApplicationBase {
   
   show(element) {
     this.titleBar.appendToElement(element);
+    
+    this.titleBar.element.find('a').click((event) => {
+      // name of the route in the link
+      let route = event.target.innerHTML;
+      // this - instance of the class
+      this.activateRoute(route.trim()); 
+    });
+    
     // check for default route and show it
     if (this.defaultRoute) {
       this.activateRoute(this.defaultRoute);

@@ -19,7 +19,9 @@ export class TitleBar extends BaseElement {
   getElementString() {
     let links = [];
     for (let link of this.links) {
-      links += `<li><a href="${link.href}">${link.title}</a></li>
+      //  href="${link.href} removed from the 
+      // link to take control of the routes from the onclick event
+      links += `<li><a>${link.title}</a></li>
       `;
     }
 

@@ -1,9 +1,9 @@
-import {BaseElement} from '../ui/base-element.js';
+import {Page} from '../framework/page.js';
 import {Image} from '../ui/image.js';
 import {Button} from '../ui/button.js';
 import {app} from '../app.js';
 
-export class HomePage extends BaseElement {
+export class HomePage extends Page {
   
   constructor() {
     super();
@@ -19,10 +19,12 @@ export class HomePage extends BaseElement {
     let btn = new Button('Self Driving Cars');
     // btn.appendToElement(this.element);
     btn.appendToElement($('#buttons'));
+    btn.element.click(() => app.activateRoute('Cars'));
 
     btn = new Button('Drones');
     // btn.appendToElement(this.element);
     btn.appendToElement($('#buttons'));
+    btn.element.click(() => app.activateRoute('Drones'));
   }
 
   getElementString() {
