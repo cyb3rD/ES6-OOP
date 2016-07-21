@@ -4,9 +4,25 @@ export class ApplicationBase {
 
   constructor(title) {
     this.title = title;
+    // Routes map in format
+    // {id: pageObject}
+    this.routeMap = {};
+    this.defaultRoute = null;
+    
     this.titleBar = new TitleBar(this.title);
   }
 
+  addRoute(id, pageObject, defaultRoute = false) {
+    // Pass links to Title Bar
+    this.titleBar.addLink(id, '');
+    // Keep map of all routes
+    this.routeMap[id] = pageObject;
+
+    if (defaultRoute) {
+      this.defaultRoute = id;
+    }
+  }
+  
   show(element) {
     this.titleBar.appendToElement(element);
   }

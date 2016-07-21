@@ -12,6 +12,12 @@ export class App extends ApplicationBase {
     super('Vehicles fleet manager');
     this.dataService = new FleetDataService(fleet);
     this.dataService.loadData(fleet);
+
+    // Routes
+    this.addRoute('Home', null, true);
+    this.addRoute('Cars', null);
+    this.addRoute('Drones', null);
+    this.addRoute('Map', null);
   }
 
 }
@@ -19,6 +25,3 @@ export class App extends ApplicationBase {
 // All web pages can import app and have access to global object
 export let app = new App();
 app.show($('.container'));
-
-
-
