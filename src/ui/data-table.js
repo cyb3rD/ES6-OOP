@@ -2,10 +2,11 @@ import {BaseElement} from './base-element.js';
 
 export class DataTable extends BaseElement {
 
-  constructor(headers, data) {
+  constructor(headers, data, caption) {
     super();
     this.headers = headers;
     this.data = data;
+    this.caption = caption;
   }
 
   getElementString() {
@@ -14,7 +15,7 @@ export class DataTable extends BaseElement {
     // Generate table headers
     for (let header of this.headers) {
       theader += `
-      <th class="mdl-data-table__cell--non-numeric">${header}</th>
+      <th>${header}</th>
       `;
     }
 
@@ -26,18 +27,22 @@ export class DataTable extends BaseElement {
       let td = "";
       // Inside each row loop through headers
       for (let prop of this.headers) {
-        prop = prop.toLowerCase();
+        // Don't change case for the propperty airTimeHours
+        if(prop !== "airTimeHours") {
+          prop = prop.toLowerCase();
+        }
         // using headers to get data
-        let field = row[prop.toLowerCase()];
+        let field = row[prop];
         // Add table data
-        tbody += `<td class="mdl-data-table__cell--non-numeric">${field}</td>`;
+        tbody += `<td>${field}</td>`;
       }
       tbody +="</tr>";
     }
     
     return `
+    <div><h3>${this.caption}</h3></div>
     <div class="vehicles-table-wrapper">
-      <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp vehicles-table">
+      <table>
         <thead>
           <tr>
             ${theader}

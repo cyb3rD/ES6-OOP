@@ -2,54 +2,30 @@ import $ from 'jquery';
 /**
  * Business logic classes
  */
-import {Car} from './classes/car.js';
-import {Drone} from './classes/drone.js';
 import {fleet} from './fleet-data.js';
 import {FleetDataService} from './services/fleet-data-service.js';
-/**
- * User interface classes
- */
-import {Button} from './ui/button.js';
-import {Image} from './ui/image.js';
-import {TitleBar} from './ui/title-bar.js';
-import {DataTable} from './ui/data-table.js';
-import {GoogleMap} from './ui/google-map.js';
-/**
- * Title bar
- */
-let titleBar = new TitleBar('Vehicle fleet application');
-titleBar.addLink('Home', '#');
-titleBar.addLink('Cars', '#');
-titleBar.addLink('Drones', '#');
-titleBar.addLink('Map', '#');
-titleBar.appendToElement($('.container'));
+import {ApplicationBase} from './framework/application-base.js';
+import {HomePage} from './pages/home-page.js';
+import {CarsPage} from './pages/cars-page.js';
+import {DronesPage} from './pages/drones-page.js';
+import {MapPage} from './pages/map-page.js';
 
-/**
- * Image
- */
-let img = new Image('src/images/Drone1.png');
-img.appendToElement($('.container'));
+export class App extends ApplicationBase {
 
-/**
- * Car table
- */
+  constructor() {
+    super('Vehicles fleet manager');
+    this.dataService = new FleetDataService(fleet);
+    this.dataService.loadData(fleet);
 
-let dataService = new FleetDataService(fleet);
-dataService.loadData(fleet);
+    // Routes
+    this.addRoute('Home', new HomePage(), true);
+    this.addRoute('Cars', new CarsPage());
+    this.addRoute('Drones', new DronesPage());
+    this.addRoute('Map', new MapPage());
+  }
 
-let headers = "License Model Make Miles".split(" ");
-let dataTable = new DataTable(headers, dataService.cars);
-dataTable.appendToElement($('.container'));
+}
 
-/**
- * Button
- */
-// let btn = new Button('Show more...');
-// btn.appendToElement($('.container'));
-
-/**
- * Google Map
- */
-let centerOfMap = {lat: 40.783661, lng: -73.965883};
-let map = new GoogleMap(centerOfMap, dataService.cars);
-map.appendToElement($('.container'));
+// All web pages can import app and have access to global object
+export let app = new App();
+app.show($('.container'));
