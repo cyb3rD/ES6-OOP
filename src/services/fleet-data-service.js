@@ -76,7 +76,6 @@ export class FleetDataService {
       // create new fields
       d.airTimeHours = drone.airTimeHours;
       d.base = drone.base;
-      console.log(d);
       return d;
     } catch(e) {
       this.errors.push(new DataError('Error in creating Car object! ', drone));
