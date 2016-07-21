@@ -34,7 +34,8 @@ export class TitleBar extends BaseElement {
           ${links}
         </ul>
       </header>
-      <div id="app"></div>
+      <div id="app">
+      </div>
     `;
   }
 

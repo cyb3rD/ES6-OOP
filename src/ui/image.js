@@ -8,9 +8,10 @@ export class Image extends BaseElement {
   }
 
   getElementString() {
-    return `
-      <div class="vehicle-img"><img src="${this.filename}" class="drone-photo" /></div>
-    `;
+    return `<div class="vehicle-img">
+      <img src="${this.filename}" class="drone-photo" />
+    </div>
+    <div id="buttons"></div>`;
   }
 
 }

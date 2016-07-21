@@ -22,9 +22,20 @@ export class ApplicationBase {
       this.defaultRoute = id;
     }
   }
+
+  activateRoute(route) {
+    let content = $('#app');
+    content.empty();
+
+    this.routeMap[route].appendToElement(content);
+  }
   
   show(element) {
     this.titleBar.appendToElement(element);
+    // check for default route and show it
+    if (this.defaultRoute) {
+      this.activateRoute(this.defaultRoute);
+    }
   }
 
 }
